@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<item>
+<title>[COLOR lime]Legújabb filmek [/COLOR][COLOR red]filminvazio.com[/COLOR]</title>
+<link>$doregex[menuelem]</link>
+<regex>
+  <name>menuelem</name>
+  <listrepeat><![CDATA[
+        <title>[menuelem.param3]</title>
+        <link>$doregex[forrasa]</link>
+        <thumbnail>[menuelem.param2]</thumbnail>
+]]></listrepeat>
+<expres><![CDATA[(?s)<div id="mt-.+?class="item".+?href="(.+?)".+?img src="(.+?)" alt="(.+?)"]]></expres>
+<page>http://filminvazio.com/</page>
+</regex>
+
+<regex>
+  <name>forrasa</name>
+  <listrepeat><![CDATA[
+        <title>[COLOR skyblue]Források[/COLOR]</title>
+        <link>$doregex[links]</link>
+        <thumbnail></thumbnail>
+]]></listrepeat>
+<expres><![CDATA[href="(http://ncoredb.com.+?)"]]></expres>
+<page>[menuelem.param1]</page>
+</regex>
+
+<regex>
+  <name>links</name>
+  <listrepeat><![CDATA[
+        <title>[COLOR lime]Forrás[/COLOR][links.param0]</title>
+        <urlsolve>[links.param1]</urlsolve>
+        <thumbnail></thumbnail>
+]]></listrepeat>
+<expres><![CDATA[(?s)<li class="elemento".+?href="(.+?)" target="_blank">]]></expres>
+<page>[forrasa.param1]</page>
+</regex>
+
+</item>
+
+
+<item>
+<title>[COLOR lime]Összes [/COLOR][COLOR red]filminvazio.com[/COLOR]</title>
+<link>$doregex[oldal]</link>
+
+<regex>
+  <name>oldal</name>
+  <listrepeat><![CDATA[
+        <title>[oldal.param1]</title>
+        <link>$doregex[menuelem]</link>
+        <thumbnail></thumbnail>
+]]></listrepeat>
+<expres><![CDATA[(\d{1,2})]]></expres>
+<page>http://subiect.eu/ptchwpyrl/oszedo/raw</page>
+</regex>
+
+
+<regex>
+  <name>menuelem</name>
+  <listrepeat><![CDATA[
+        <title>[menuelem.param3]</title>
+        <link>$doregex[forrasa]</link>
+        <thumbnail>[menuelem.param2]</thumbnail>
+]]></listrepeat>
+<expres><![CDATA[(?s)<div id="mt-.+?class="item".+?href="(.+?)".+?img src="(.+?)" alt="(.+?)"]]></expres>
+<page>http://filminvazio.com/page/[oldal.param1]/</page>
+</regex>
+
+<regex>
+  <name>forrasa</name>
+  <listrepeat><![CDATA[
+        <title>[COLOR skyblue]Források[/COLOR]</title>
+        <link>$doregex[links]</link>
+        <thumbnail></thumbnail>
+]]></listrepeat>
+<expres><![CDATA[href="(http://ncoredb.com.+?)"]]></expres>
+<page>[menuelem.param1]</page>
+</regex>
+
+<regex>
+  <name>links</name>
+  <listrepeat><![CDATA[
+        <title>[COLOR lime]Forrás[/COLOR] [links.param0]</title>
+        <urlsolve>[links.param1]</urlsolve>
+        <thumbnail></thumbnail>
+]]></listrepeat>
+<expres><![CDATA[(?s)<li class="elemento".+?href="(.+?)" target="_blank">]]></expres>
+<page>[forrasa.param1]</page>
+</regex>
+
+</item>
+
+<item>
+<title>[COLOR lime]Kategória [/COLOR][COLOR red]filminvazio.com[/COLOR]</title>
+<link>$doregex[cat]</link>
+
+<regex>
+  <name>cat</name>
+  <listrepeat><![CDATA[
+        <title>[cat.param2]</title>
+        <link>$doregex[menuelem]</link>
+        <thumbnail></thumbnail>
+]]></listrepeat>
+<expres><![CDATA[(?s)cat-item.+?href="(.+?)" >(.+?)</a>]]></expres>
+<page>http://filminvazio.com/</page>
+</regex>
+
+
+<regex>
+  <name>menuelem</name>
+  <listrepeat><![CDATA[
+        <title>[menuelem.param3]</title>
+        <link>$doregex[forrasa]</link>
+        <thumbnail>[menuelem.param2]</thumbnail>
+]]></listrepeat>
+<expres><![CDATA[(?s)<div id="mt-.+?class="item".+?href="(.+?)".+?img src="(.+?)" alt="(.+?)"]]></expres>
+<page>[cat.param1]</page>
+</regex>
+
+<regex>
+  <name>forrasa</name>
+  <listrepeat><![CDATA[
+        <title>[COLOR skyblue]Források[/COLOR]</title>
+        <link>$doregex[links]</link>
+        <thumbnail></thumbnail>
+]]></listrepeat>
+<expres><![CDATA[href="(http://ncoredb.com.+?)"]]></expres>
+<page>[menuelem.param1]</page>
+</regex>
+
+<regex>
+  <name>links</name>
+  <listrepeat><![CDATA[
+        <title>[COLOR lime]Forrás[/COLOR] [links.param0]</title>
+        <urlsolve>[links.param1]</urlsolve>
+        <thumbnail></thumbnail>
+]]></listrepeat>
+<expres><![CDATA[(?s)<li class="elemento".+?href="(.+?)" target="_blank">]]></expres>
+<page>[forrasa.param1]</page>
+</regex>
+
+</item>
+
+<item>
+<title>[COLOR lime]Évszám szerint [/COLOR][COLOR red]filminvazio.com[/COLOR]</title>
+<link>$doregex[cat]</link>
+
+<regex>
+  <name>cat</name>
+  <listrepeat><![CDATA[
+        <title>[cat.param2]</title>
+        <link>$doregex[menuelem]</link>
+        <thumbnail></thumbnail>
+]]></listrepeat>
+<expres><![CDATA[(?s)<a href="(http://filminvazio.com/fecha-estreno/.+?)">(.+?)</a>]]></expres>
+<page>http://filminvazio.com/</page>
+</regex>
+
+
+<regex>
+  <name>menuelem</name>
+  <listrepeat><![CDATA[
+        <title>[menuelem.param3]</title>
+        <link>$doregex[forrasa]</link>
+        <thumbnail>[menuelem.param2]</thumbnail>
+]]></listrepeat>
+<expres><![CDATA[(?s)<div id="mt-.+?class="item".+?href="(.+?)".+?img src="(.+?)" alt="(.+?)"]]></expres>
+<page>[cat.param1]</page>
+</regex>
+
+<regex>
+  <name>forrasa</name>
+  <listrepeat><![CDATA[
+        <title>[COLOR skyblue]Források[/COLOR]</title>
+        <link>$doregex[links]</link>
+        <thumbnail></thumbnail>
+]]></listrepeat>
+<expres><![CDATA[href="(http://ncoredb.com.+?)"]]></expres>
+<page>[menuelem.param1]</page>
+</regex>
+
+<regex>
+  <name>links</name>
+  <listrepeat><![CDATA[
+        <title>[COLOR lime]Forrás[/COLOR] [links.param0]</title>
+        <urlsolve>[links.param1]</urlsolve>
+        <thumbnail></thumbnail>
+]]></listrepeat>
+<expres><![CDATA[(?s)<li class="elemento".+?href="(.+?)" target="_blank">]]></expres>
+<page>[forrasa.param1]</page>
+</regex>
+
+</item>
+
