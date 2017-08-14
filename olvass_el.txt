@@ -1,0 +1,8 @@
+LivestreamPro kell hozza.
+plugin.video.live.streampro
+
+Live StreamPro:
+
+Beallitasok/Add Source/
+Add URL: http://gilipollas.esy.es/repository/filminvazio/filminvazio.xml
+
